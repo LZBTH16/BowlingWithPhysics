@@ -643,7 +643,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   force: 30
   ballAnchor: {fileID: 903379499}
-  launchIndicator: {fileID: 0}
+  launchIndicator: {fileID: 1329512911}
   inputManager: {fileID: 1026147893}
 --- !u!114 &1026147893
 MonoBehaviour:
