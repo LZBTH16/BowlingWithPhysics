@@ -5,6 +5,7 @@ public class BallController : MonoBehaviour
     // the variables for use
     [SerializeField] private float force = 1f;
     [SerializeField] private Transform ballAnchor;
+    [SerializeField] private Transform launchIndicator;
     [SerializeField] private InputManager inputManager;
     private Rigidbody ballRB;
     private bool isBallLaunched;
@@ -34,7 +35,8 @@ public class BallController : MonoBehaviour
         // to disconnect from the parent object
         transform.parent = null;
         ballRB.isKinematic = false;
-        ballRB.AddForce(transform.forward * force, ForceMode.Impulse);
+        ballRB.AddForce(launchIndicator.forward * force, ForceMode.Impulse);
+        launchIndicator.gameObject.SetActive(false);
     }
 
     // Update is called once per frame
