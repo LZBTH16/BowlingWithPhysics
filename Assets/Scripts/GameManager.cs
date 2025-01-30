@@ -14,6 +14,9 @@ public class GameManager : MonoBehaviour
         // find all objects of type FallTrigger
         pins = FindObjectsByType<FallTrigger>(FindObjectsInactive.Include, FindObjectsSortMode.None);
 
+        // for debugging
+        Debug.Log($"Found {pins.Length} pins!");
+
         foreach (FallTrigger pin in pins) {
             pin.OnPillFall.AddListener(IncrementScore);
         }
