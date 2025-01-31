@@ -45,10 +45,12 @@ public class GameManager : MonoBehaviour
 
         // add in new pins
         pinObjects = Instantiate(pinCollection, pinAnchor.transform.position, Quaternion.identity, transform);
-        Debug.Log($"New pins set: {pins.Length}");
+        Debug.Log($"Number of pins in new collection: {pinObjects.transform.childCount}");
 
         // add IncrementScore as a listener to the OnPinFall event each set of new pins
-        pins = FindObjectsByType<FallTrigger>(FindObjectsInactive.Include, FindObjectsSortMode.None);
+        // pins = FindObjectsByType<FallTrigger>(FindObjectsInactive.Include, FindObjectsSortMode.None);
+        pins = pinObjects.GetComponentsInChildren<FallTrigger>();
+        Debug.Log($"New pins set: {pins.Length}");
         foreach (FallTrigger pin in pins) {
             pin.OnPinFall.AddListener(IncrementScore);
         }
