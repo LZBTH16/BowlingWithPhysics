@@ -9,6 +9,7 @@ public class GameManager : MonoBehaviour
 
     // reference to the ballController
     [SerializeField] private BallController ball;
+    [SerializeField] private LaunchIndicator indicator;
     // reference to the pin collection prefab
     [SerializeField] private GameObject pinCollection;
     // reference to an empty GameObject that'll spawn the pin collection prefab
@@ -31,6 +32,7 @@ public class GameManager : MonoBehaviour
 
     private void HandleReset() {
         ball.ResetBall();
+        indicator.ResetIndicator();
         SetPins();
     }
 
